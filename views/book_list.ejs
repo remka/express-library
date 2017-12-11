@@ -1,7 +1,11 @@
-LISTTT
+<%- include('partials/header'); %>
 
-<% book_list.forEach(function(book){ %>
-  <li>
-    <%= book.title %>
-  </li>
-<% }); %>
+<main role="main" class="container">
+  <% book_list.forEach(function(book){ %>
+    <li>
+      <%= book.title %>
+    </li>
+  <% }); %>
+</div>
+
+<%- include('partials/footer'); %>
