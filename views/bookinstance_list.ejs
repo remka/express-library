@@ -7,6 +7,8 @@
     <li class="breadcrumb-item active">Book Instances</li>
   </ol>
 
+  <h1>Book instances list</h1>
+
   <% bookinstance_list.forEach(function(val){ %>
     <li>
       <a href="<%= val.url %>"><%= val.book.title %></a> - <%= val.imprint %>

@@ -7,9 +7,11 @@
     <li class="breadcrumb-item active">Books</li>
   </ol>
 
+  <h1>Books list</h1>
+
   <% book_list.forEach(function(book){ %>
     <li>
-      <a href="<%= book.url %>"><%= book.title %></a> (<%= book.author.name %>)
+      <a href="<%= book.url %>"><%= book.title %></a> (<a href="<%= book.author.url %>"><%= book.author.name %><a/>)
     </li>
   <% }); %>
 
