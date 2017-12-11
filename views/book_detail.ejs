@@ -1,0 +1,26 @@
+<%- include('partials/header'); %>
+
+<main role="main" class="container">
+  <h1><%= book.title %></h1>
+  <p><strong>Author:</strong> <a href="<%= book.author.url %>"><%= book.author.name %></a></p>
+  <p><strong>Summary:</strong> <%= book.summary %></p>
+  <p><strong>ISBN:</strong> <a href="https://isbnsearch.org/isbn/<%= book.isbn %>" target="_blank"><%= book.isbn %></a></p>
+  <h2>Copies</h2>
+  <% book_instances.forEach(function(val){ %>
+    <hr>
+    <%if (val.status=='Available') { %>
+      <p class="text-success"><%= val.status %></p>
+    <% } else if (val.status=='Maintenance') { %>
+      <p class="text-danger"><%= val.status %></p>
+    <% } else { %>
+      <p else="text-warning"><%= val.status %></p>
+    <% } %>
+    <p><%= val.imprint %></p>
+    <%if (val.status!='Available') { %>
+      <p><strong>Due back:</strong> <%= val.due_back_formatted %></p>
+    <% } %>
+    <p><strong>Id:</strong> <a href="<%= val.url %>"><%= val._id %></a></p>
+  <% }) %>
+</div>
+
+<%- include('partials/footer'); %>

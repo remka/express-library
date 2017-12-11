@@ -1,0 +1,11 @@
+<%- include('partials/header'); %>
+
+<main role="main" class="container">
+  <% genre_list.forEach(function(genre){ %>
+    <li>
+      <a href="<%= genre.url %>"><%= genre.name %></a>
+    </li>
+  <% }) %>
+</div>
+
+<%- include('partials/footer'); %>
