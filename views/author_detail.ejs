@@ -11,7 +11,15 @@
   <h1><%= author.name %></h1>
   <p><%= author.date_of_birth %> - <%= author.date_of_death %></p>
 
-  AUTHOR DETAILS!
+  <h2>Books</h2>
+
+  <dl>
+  <% author_books.forEach(function(book){ %>
+    <dt><a href="<%= book.url %>"><%= book.title %></a></dt>
+    <dd><%= book.summary %></dd>
+  <% }) %>
+  </dl>
+
 </div>
 
 <%- include('partials/footer'); %>
