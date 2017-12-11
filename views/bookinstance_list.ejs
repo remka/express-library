@@ -1,0 +1,21 @@
+<%- include('partials/header'); %>
+
+<main role="main" class="container">
+  <% bookinstance_list.forEach(function(val){ %>
+    <li>
+      <a href="<%= val.url %>"><%= val.book.title %></a> - <%= val.imprint %>
+      <%if (val.status=='Available') { %>
+        <span class="text-success"><%= val.status %></span>
+      <% } else if (val.status=='Maintenance') { %>
+        <span class="text-danger"><%= val.status %></span>
+      <% } else { %>
+        <span else="text-warning"><%= val.status %></span>
+      <% } %>
+      <%if (val.status!='Available') { %>
+        <span><%= val.due_back %></span>
+      <% } %>
+    </li>
+  <% }) %>
+</div>
+
+<%- include('partials/footer'); %>
