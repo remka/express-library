@@ -1,11 +1,18 @@
 <%- include('partials/header'); %>
 
 <main role="main" class="container">
+
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active">Books</li>
+  </ol>
+
   <% book_list.forEach(function(book){ %>
     <li>
       <a href="<%= book.url %>"><%= book.title %></a> (<%= book.author.name %>)
     </li>
   <% }); %>
+
 </div>
 
 <%- include('partials/footer'); %>

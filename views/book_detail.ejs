@@ -1,6 +1,13 @@
 <%- include('partials/header'); %>
 
 <main role="main" class="container">
+
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="/catalog/books">Books</a></li>
+    <li class="breadcrumb-item active"><%= book.title %></li>
+  </ol>
+
   <h1><%= book.title %></h1>
   <p><strong>Author:</strong> <a href="<%= book.author.url %>"><%= book.author.name %></a></p>
   <p><strong>Summary:</strong> <%= book.summary %></p>

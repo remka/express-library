@@ -1,13 +1,22 @@
 <%- include('partials/header'); %>
 
 <main role="main" class="container">
+
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="/catalog/genres">Genres</a></li>
+    <li class="breadcrumb-item active"><%= genre.name %></li>
+  </ol>
+
   <h1>Genre: <%= genre.name %></h1>
+
   <% genre_books.forEach(function(book){ %>
     <dl>
       <dt><a href="<%= book.url %>"><%= book.title %></a></dt>
       <dd><%= book.summary %></dd>
     </dl>
   <% }) %>
+
 </div>
 
 <%- include('partials/footer'); %>
