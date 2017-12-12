@@ -1,0 +1,25 @@
+<%- include('partials/header'); %>
+
+<main role="main" class="container">
+
+  <h1><%= title %></h1>
+
+  <% if (typeof errors != 'undefined') { %>
+    <% errors.forEach(function(error){ %>
+      <div class="alert alert-danger" role="alert">
+        <%= error.msg %>
+      </div>
+    <% }) %>
+  <% } %>
+
+  <form action="" method="POST">
+    <div class="form-group">
+      <label for="name">Genre:</label>
+      <input type="input" name="name" class="form-control" id="exampleInputEmail1" placeholder="Fantasy, Poetry etc." required="true">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+</div>
+
+<%- include('partials/footer'); %>
