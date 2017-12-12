@@ -9,7 +9,10 @@
   </ol>
 
   <h1><%= author.name %></h1>
-  <p><%= author.date_of_birth %> - <%= author.date_of_death %></p>
+  <p>
+    <%= author.date_of_birth_formatted %> - <%= author.date_of_death_formatted %>
+    (<%= author.lifespan.years %> years)
+  </p>
 
   <h2>Books</h2>
 

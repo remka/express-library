@@ -27,16 +27,33 @@ AuthorSchema
 });
 
 // Virtual for date_of_birth
-BookInstanceSchema
+AuthorSchema
 .virtual('date_of_birth_formatted')
 .get(function () {
   return moment(this.date_of_birth).format('MMMM Do, YYYY');
 });
 
-BookInstanceSchema
+AuthorSchema
 .virtual('date_of_death_formatted')
 .get(function () {
   return moment(this.date_of_death).format('MMMM Do, YYYY');
+});
+
+AuthorSchema
+.virtual('lifespan')
+.get(function () {
+  var a = moment(this.date_of_death);
+  var b = moment(this.date_of_birth);
+  var years = a.diff(b, 'year');
+  b.add(years, 'years');
+  var months = a.diff(b, 'months');
+  b.add(months, 'months');
+  var days = a.diff(b, 'days');
+  return {
+    years: years,
+    months: months,
+    days: days
+  }
 });
 
 //Export model
