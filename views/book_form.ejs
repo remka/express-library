@@ -1,0 +1,56 @@
+<%- include('partials/header'); %>
+
+<main role="main" class="container">
+
+  <h1><%= title %></h1>
+
+  <% if (typeof errors != 'undefined') { %>
+    <% errors.forEach(function(error){ %>
+      <div class="alert alert-danger" role="alert">
+        <%= error.msg %>
+      </div>
+    <% }) %>
+  <% } %>
+
+  <form action="" method="POST">
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input type="input" name="title" class="form-control" id="title" placeholder="Name of book" value="<%= typeof book!='undefined' ? book.title : '' %>">
+    </div>
+    <div class="form-group">
+      <label for="author">Author:</label>
+      <select class="form-control" id="author" name="author">
+        <option value="">Please select</option>
+        <% authors.forEach(function(author){ %>
+        <option value="<%= author._id %>" <% if(typeof book != 'undefined') { %>
+          <% if(book.author == author._id.toString()) { %>
+              selected
+            <% } %>
+          <% } %> >
+          <%= author.name %>
+        </option>
+        <% }) %>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="summary">Summary:</label>
+      <textarea class="form-control" name="summary" id="summary" rows="5" placeholder="Summary"><%= typeof book!='undefined' ? book.summary : '' %></textarea>
+    </div>
+    <div class="form-group">
+      <label for="isbn">ISBN:</label>
+      <input type="input" name="isbn" class="form-control" id="isbn" placeholder="ISBN13" value="<%= typeof book!='undefined' ? book.isbn : '' %>">
+    </div>
+    <label>Genres:</label>
+    <% genres.forEach(function(genre){ %>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" name="genre" type="checkbox" value="<%= genre._id %>" <% if(genre.checked) { %> checked <% } %>>
+        <%= genre.name %>
+      </label>
+    </div>
+    <% }) %>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<%- include('partials/footer'); %>
