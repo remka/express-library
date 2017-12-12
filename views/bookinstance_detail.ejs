@@ -20,15 +20,15 @@
 
   <p>
     <%if (bookinstance.status == 'Available') { %>
-      <span class="text-success">
+      <span class="badge badge-success">
         <%= bookinstance.status %>
       </span>
     <% } else if (bookinstance.status == 'Maintenance') { %>
-      <span class="text-danger">
+      <span class="badge badge-danger">
         <%= bookinstance.status %>
       </span>
     <% } else { %>
-      <span class="text-warning">
+      <span class="badge badge-warning">
         <%= bookinstance.status %>
       </span>
     <% } %>

@@ -15,6 +15,10 @@
     </li>
   <% }); %>
 
+  <% if (book_list.length == 0) { %>
+     There is no book yet.
+  <% } %>
+
 </div>
 
 <%- include('partials/footer'); %>

@@ -17,6 +17,10 @@
     </dl>
   <% }) %>
 
+  <% if (genre_books.length == 0) { %>
+     There is no book in this genre.
+  <% } %>
+
 </div>
 
 <%- include('partials/footer'); %>
