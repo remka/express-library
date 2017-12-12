@@ -20,6 +20,10 @@
   <% }) %>
   </dl>
 
+  <% if (author_books.length == 0) { %>
+     <p>This author has no book.</p>
+  <% } %>
+
 </div>
 
 <%- include('partials/footer'); %>
