@@ -1,0 +1,45 @@
+<%- include('partials/header'); %>
+
+<main role="main" class="container">
+
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item"><a href="/catalog/authors">Authors</a></li>
+    <li class="breadcrumb-item active">Delete author</li>
+  </ol>
+
+  <h1><%= author.name %></h1>
+
+  <p>
+    <%= author.date_of_birth_formatted %> - <%= author.date_of_death_formatted %>
+    (<%= author.lifespan.years %> years)
+  </p>
+
+  <% if (author_books.length > 0) { %>
+
+    <div class="alert alert-warning" role="alert">
+      Delete the following books before attempting to delete this author.
+    </div>
+
+    <h2>Books</h2>
+
+    <dl>
+    <% author_books.forEach(function(book){ %>
+      <dt><a href="<%= book.url %>"><%= book.title %></a></dt>
+      <dd><%= book.summary %></dd>
+    <% }) %>
+    </dl>
+
+  <% } else { %>
+
+    <form action="" method="POST">
+      <input type="hidden" name="authorid" id="authorid" value="<%= author._id %>">
+      <button type="submit" class="btn btn-primary">Delete author</button>
+    </form>
+
+  <% } %>
+
+
+</div>
+
+<%- include('partials/footer'); %>

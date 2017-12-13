@@ -8,7 +8,10 @@
     <li class="breadcrumb-item active"><%= author.name %></li>
   </ol>
 
+  <a class="btn btn-primary float-right" href="<%= author.url %>/delete" role="button">Delete author</a>
+
   <h1><%= author.name %></h1>
+
   <p>
     <%= author.date_of_birth_formatted %> - <%= author.date_of_death_formatted %>
     (<%= author.lifespan.years %> years)
