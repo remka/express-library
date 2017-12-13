@@ -1,0 +1,52 @@
+<%- include('partials/header'); %>
+
+<main role="main" class="container">
+
+  <h1><%= title %></h1>
+
+  <% if (typeof errors != 'undefined') { %>
+    <% errors.forEach(function(error){ %>
+      <div class="alert alert-danger" role="alert">
+        <%= error.msg %>
+      </div>
+    <% }) %>
+  <% } %>
+
+  <form action="" method="POST">
+    <div class="form-group">
+      <label for="book">Book:</label>
+      <select class="form-control" id="book" name="book">
+        <% book_list.forEach(function(book){ %>
+          <option value="<%= value=book._id %>" <% if(typeof bookinstance != 'undefined') { %>
+            <% if(bookinstance.book.toString() == book._id.toString()) { %>
+                selected
+              <% } %>
+            <% } %> >
+            <%= book.title %>
+          </option>
+        <% }) %>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="imprint">Imprint:</label>
+      <input type="input" name="imprint" class="form-control" id="imprint" placeholder="Publisher and date information" value="<%= typeof bookinstance!='undefined' ? bookinstance.imprint : '' %>">
+    </div>
+    <div class="form-group">
+      <label for="due_back">Date when book available:</label>
+      <input type="date" name="due_back" class="form-control" id="due_back" placeholder="Publisher and date information" value="<%= typeof bookinstance!='undefined' ? bookinstance.due_back : '' %>">
+    </div>
+    <div class="form-group">
+      <label for="status">Status:</label>
+      <select class="form-control" id="book" name="status">
+        <option value="Maintenance" <% if(bookinstance!='undefined' && bookinstance.status == 'Maintenance') { %> selected <% } %>>Maintenance</option>
+        <option value="Available" <% if(bookinstance!='undefined' && bookinstance.status == 'Available') { %> selected <% } %>>Available</option>
+        <option value="Loaned" <% if(bookinstance!='undefined' && bookinstance.status == 'Loaned') { %> selected <% } %>>Loaned</option>
+        <option value="Reserved" <% if(bookinstance!='undefined' && bookinstance.status == 'Reserved') { %> selected <% } %>>Reserved</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+</div>
+
+<%- include('partials/footer'); %>
