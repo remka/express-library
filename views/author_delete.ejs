@@ -32,6 +32,10 @@
 
   <% } else { %>
 
+    <p>
+      Do you really want to delete this Author?
+    </p>
+
     <form action="" method="POST">
       <input type="hidden" name="authorid" id="authorid" value="<%= author._id %>">
       <button type="submit" class="btn btn-primary">Delete author</button>
